@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Streamer {
+  id  String  @id @default(uuid())
+  broadcaster_id String @unique
+  broadcaster_name String
+  broadcaster_language String
+  title String
+  description String
+  type String
+  avatar String
+  followers Int
+  viewCount Int
+  star Boolean
+  clips Clips[]
+}
+
+model Clips{
+  id  String  @id @default(uuid())
+  clip_id String @unique
+  broadcaster_name String
+  creator_id String @unique
+  creator_name String
+  clip_url String
+  embed_url String
+  thumbnail_url String
+  title String
+  view_count Int
+  duration Float
+  is_featured Boolean
+  game_id String
+  created_at String   
+  streamer Streamer @relation(fields: [broadcaster_id], references: [broadcaster_id])
+  broadcaster_id String @unique
+}
