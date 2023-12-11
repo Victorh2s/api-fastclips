@@ -1,7 +1,8 @@
 [x] Usuário deve conseguir pesquisar determinado streamer que ele quer adicionar
-[] Usuário deve conseguir adicionar um streamer
+[x] Usuário deve conseguir adicionar um streamer
 [] Usuário deve conseguir remover um streamer
 [] Usuário deve conseguir ver todos os streamers adicionados
+[] Usuário deve conseguir favoritar o streamer
 [] Usuário deve conseguir puxar clips de determinado streamer
 [] Usuário deve conseguir filtrar os clips com base no tempo de postagem
 [] Usuário deve conseguir filtrar a quantidade de clips
