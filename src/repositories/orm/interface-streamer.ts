@@ -37,4 +37,6 @@ export interface IntStreamerRepository {
     broadcaster_type: string
     created_at: string
   }>
+  Delete(broadcasterID: string): Promise<void>
+
 }

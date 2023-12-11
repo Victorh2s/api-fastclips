@@ -28,4 +28,12 @@ export class OrmStreamerRepository {
     });
     return addStreamer;
   }
+
+  async Delete (broadcasterID: string) {
+    await prisma.streamer.delete({
+      where: {
+        broadcaster_id: broadcasterID
+      }
+    });
+  }
 }
