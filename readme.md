@@ -1,5 +1,5 @@
 [x] Usuário deve conseguir pesquisar determinado streamer que ele quer adicionar
-[x] Usuário deve conseguir adicionar um streamer
+[] Usuário deve conseguir adicionar um streamer
 [] Usuário deve conseguir remover um streamer
 [] Usuário deve conseguir ver todos os streamers adicionados
 [] Usuário deve conseguir puxar clips de determinado streamer

@@ -1,7 +1,8 @@
+import { AddStreamerController } from '@/http/controllers/StreamerController/AddStreamer';
+import { SearchStreamerController } from '@/http/controllers/StreamerController/SearchStreamer';
 import { Router } from 'express';
-
-import { SearchStreamer } from '@/http/controllers/StreamerController/SearchStreamer';
 
 export const StreamerRoute = Router();
 
-StreamerRoute.get('/search', SearchStreamer);
+StreamerRoute.get('/search', SearchStreamerController);
+StreamerRoute.post('/', AddStreamerController);
