@@ -1,5 +1,5 @@
 import express from 'express';
-import { StreamerRoute } from './routers/StreamerRouter';
+import { StreamerRoute } from './routers/streamer-router';
 
 export const app = express();
 
