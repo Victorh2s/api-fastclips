@@ -19,7 +19,6 @@ model Streamer {
   description String
   type String
   avatar String
-  followers Int
   viewCount Int
   star Boolean
   clips Clips[]
