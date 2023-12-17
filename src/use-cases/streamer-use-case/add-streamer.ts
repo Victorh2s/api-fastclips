@@ -1,4 +1,4 @@
-import { type IntStreamerRepository } from '@/repositories/orm/interface-streamer';
+import { type IntStreamerRepository } from '@/repositories/orm/interfaces/interface-streamer';
 import { getChannels } from '@/utils/axios';
 
 export interface IntAddStreamerUseCase {

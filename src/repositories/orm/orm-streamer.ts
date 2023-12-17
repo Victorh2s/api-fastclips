@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { type IntAddStreamer } from './interface-streamer';
+import { type IntAddStreamer } from './interfaces/interface-streamer';
 
 const prisma = new PrismaClient();
 
