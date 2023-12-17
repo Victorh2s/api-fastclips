@@ -4,15 +4,12 @@ import { type Request, type Response } from 'express';
 
 export async function GetAllStreamerController (req: Request, res: Response) {
   const { broadcastername, pagenumber, pagesize } = req.query;
-  console.log(req.query);
-  console.log(pagenumber, pagesize);
   const querys = {
     broadcasterName: broadcastername ? String(broadcastername) : undefined,
     skip: pagenumber ? Number(pagenumber) : undefined,
     pageSize: pagesize ? Number(pagesize) : undefined
   };
   try {
-    console.log(querys.skip, querys.pageSize);
     const ormStreamerRepository = new OrmStreamerRepository();
     const getAllStreamerUseCase = new GetAllStreamerUseCase(ormStreamerRepository);
     const data = await getAllStreamerUseCase.execute({ broadcasterName: querys.broadcasterName, skip: querys.skip, pageSize: querys.pageSize });

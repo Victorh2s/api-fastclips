@@ -36,4 +36,17 @@ export class OrmStreamerRepository {
       }
     });
   }
+
+  async Favorite (broadcasterID: string, star: boolean) {
+    const updateBroadcasterStar = await prisma.streamer.update({
+      where: {
+        broadcaster_id: broadcasterID
+      },
+      data: {
+        star
+      }
+    });
+
+    return updateBroadcasterStar;
+  }
 }

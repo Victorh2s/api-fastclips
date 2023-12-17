@@ -38,5 +38,5 @@ export interface IntStreamerRepository {
     created_at: string
   }>
   Delete(broadcasterID: string): Promise<void>
-
+  Favorite(broadcasterID: string, star: boolean): Promise<IntStreamer | null>
 }
