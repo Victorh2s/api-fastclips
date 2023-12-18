@@ -26,35 +26,36 @@ interface IntClipsResponse {
   data: IntCLip[]
 }
 
-export class GetClipsUseCase {
+interface IntGetUniqueClipUseCase {
+  clipid: string
+}
+
+export class GetUniqueClipUseCase {
   constructor (private readonly ormStreamerRepository: IntStreamerRepository) {}
 
-  async execute () {
-    const streamers = await this.ormStreamerRepository.GetStreamers({});
+  async execute ({ clipid }: IntGetUniqueClipUseCase) {
     const clips: IntClipsResponse[] = [];
 
-    const promises = streamers.map(async (item) => {
-      const response = await api.get(
-              `clips?broadcaster_id=${item.broadcaster_id}`,
+    const response = await api.get(
+              `clips?id=${clipid}`,
               {
                 headers: {
                   'Client-ID': process.env.CLIENT_ID,
                   Authorization: `Bearer ${process.env.TOKEN}`
                 }
               }
-      );
-      const broadcasterName = item.display_name;
-      const res: IntClipsResponse = {
-        streamer: broadcasterName,
-        data: response.data.data
+    );
+    console.log(response.data.data);
+    const broadcasterName = response.data.data[0].broadcaster_name;
+    const res: IntClipsResponse = {
+      streamer: broadcasterName,
+      data: response.data.data
 
-      };
+    };
 
-      clips.push(res);
-    });
+    clips.push(res);
+    console.log(clips);
 
-    await Promise.all(promises);
-
-    return clips[0];
+    return clips;
   }
 }

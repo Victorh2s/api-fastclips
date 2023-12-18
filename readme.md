@@ -5,6 +5,7 @@
 [x] Usuário deve conseguir favoritar o streamer
 [x] Usuário deve conseguir filtrar o streamer pelo nome
 [x] Usuário deve conseguir puxar os clips dos streamers adicionados
+[x] Usuário deve conseguir puxar um clip especifico
 [] Usuário deve conseguir puxar clips de determinado streamer
 [] Usuário deve conseguir filtrar os clips com base no tempo de postagem
 [] Usuário deve conseguir filtrar os clips com base no title
