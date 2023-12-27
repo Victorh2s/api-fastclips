@@ -25,25 +25,17 @@ interface IntClipsResponse {
   streamer: string
   data: IntCLip[]
 }
-interface IntGetClipsUseCase {
-  time: number | null
-  count: number | null
-}
 
-export class GetClipsUseCase {
+export class GetClipsByStreamer {
   constructor (private readonly ormStreamerRepository: IntStreamerRepository) {}
 
-  async execute ({ time, count }: IntGetClipsUseCase) {
+  async execute () {
     const streamers = await this.ormStreamerRepository.GetStreamers({});
     const clips: IntClipsResponse[] = [];
 
-    const now = new Date();
-    const getTime = time ? new Date(now.getTime() - 24 * 60 * 60 * (time * 1000)) : new Date(now.getTime() - 24 * 60 * 60 * 1000);
-    const formattedDate = getTime.toISOString();
-
     const promises = streamers.map(async (item) => {
       const response = await api.get(
-              `clips?broadcaster_id=${item.broadcaster_id}&started_at=${formattedDate}${count ? `&first=${count}` : '&first=20'}`,
+              `clips?broadcaster_id=${item.broadcaster_id}`,
               {
                 headers: {
                   'Client-ID': process.env.CLIENT_ID,
@@ -55,7 +47,6 @@ export class GetClipsUseCase {
       const res: IntClipsResponse = {
         streamer: broadcasterName,
         data: response.data.data
-
       };
 
       clips.push(res);
@@ -63,6 +54,6 @@ export class GetClipsUseCase {
 
     await Promise.all(promises);
 
-    return clips;
+    return clips[0];
   }
 }

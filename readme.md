@@ -6,9 +6,8 @@
 [x] Usuário deve conseguir filtrar o streamer pelo nome
 [x] Usuário deve conseguir puxar os clips dos streamers adicionados
 [x] Usuário deve conseguir puxar um clip especifico
-[] Usuário deve conseguir puxar clips de determinado streamer
-[] Usuário deve conseguir filtrar os clips com base no tempo de postagem
-[] Usuário deve conseguir filtrar os clips com base no title
-[] Usuário deve conseguir filtrar a quantidade de clips
-[] Usuário deve conseguir salvar seus clips favoritos
+[x] Usuário deve conseguir puxar clips de determinado streamer
+[x] Usuário deve conseguir filtrar os clips com base no tempo de postagem
+[x] Usuário deve conseguir filtrar a quantidade de clips
 [] Usuário deve conseguir ver seus clips salvos
+[] Usuário deve conseguir salvar seus clips favoritos
