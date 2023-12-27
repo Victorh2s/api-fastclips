@@ -8,7 +8,6 @@ datasource db {
 }
 
 model Streamer {
-  id               String  @id @default(uuid())
   broadcaster_id   String  @unique
   broadcaster_name String
   type             String
@@ -18,14 +17,13 @@ model Streamer {
   display_name     String
   broadcaster_type String
   created_at       String
-  clips            Clips?
+  clips            Clips[]
 }
 
 model Clips {
-  id               String   @id @default(uuid())
   clip_id          String   @unique
   broadcaster_name String
-  creator_id       String   @unique
+  creator_id       String
   creator_name     String
   clip_url         String
   embed_url        String
@@ -36,6 +34,6 @@ model Clips {
   is_featured      Boolean
   game_id          String
   created_at       String
-  broadcaster_id   String   @unique
-  streamer         Streamer @relation(fields: [broadcaster_id], references: [broadcaster_id])
+  broadcasterid    String
+  streamer         Streamer @relation(fields: [broadcasterid], references: [broadcaster_id])
 }

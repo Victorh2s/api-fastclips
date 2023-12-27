@@ -45,7 +45,6 @@ export class GetUniqueClipUseCase {
                 }
               }
     );
-    console.log(response.data.data);
     const broadcasterName = response.data.data[0].broadcaster_name;
     const res: IntClipsResponse = {
       streamer: broadcasterName,
@@ -54,7 +53,6 @@ export class GetUniqueClipUseCase {
     };
 
     clips.push(res);
-    console.log(clips);
 
     return clips;
   }

@@ -1,7 +1,6 @@
 import { type IntGetAllStreamerUseCase } from '@/use-cases/streamer-use-case/get--all-streamer';
 
 export interface IntStreamer {
-  id: string
   broadcaster_id: string
   broadcaster_name: string
   type: string
@@ -28,7 +27,6 @@ export interface IntAddStreamer {
 export interface IntStreamerRepository {
   findUniqueBroadcasterID(broadcasterID: string): Promise<IntStreamer | null>
   Create({ broadcasterID, broadcasterName, displayName, type, avatar, broadcasterType, viewCount, createdAt, star }: IntAddStreamer): Promise<{
-    id: string
     broadcaster_id: string
     broadcaster_name: string
     type: string
@@ -42,7 +40,6 @@ export interface IntStreamerRepository {
   Delete(broadcasterID: string): Promise<void>
   Favorite(broadcasterID: string, star: boolean): Promise<IntStreamer | null>
   GetStreamers({ broadcasterName, skip, pageSize }: IntGetAllStreamerUseCase): Promise<Array<{
-    id: string
     broadcaster_id: string
     broadcaster_name: string
     type: string

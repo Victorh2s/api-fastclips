@@ -36,6 +36,7 @@ export class OrmStreamerRepository {
         broadcaster_id: broadcasterID
       }
     });
+    return;
   }
 
   async Favorite (broadcasterID: string, star: boolean) {
