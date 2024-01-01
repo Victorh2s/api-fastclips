@@ -46,6 +46,19 @@ export class OrmClipsRepository {
     return;
   }
 
+  async FindClipByID (clipID: string) {
+    const clip = await prisma.clips.findUnique({
+      where: {
+        clip_id: clipID
+      }
+    });
+
+    if (!clip) {
+      throw new Error('Clip not found');
+    }
+    return clip;
+  }
+
   async DeleteClip (clipID: string) {
     await prisma.clips.delete({
       where: {
@@ -53,5 +66,10 @@ export class OrmClipsRepository {
       }
     });
     return;
+  }
+
+  async GetClips () {
+    const clips = await prisma.clips.findMany({});
+    return clips;
   }
 }

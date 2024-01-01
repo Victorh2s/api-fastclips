@@ -4,7 +4,6 @@ import { type Request, type Response } from 'express';
 
 export async function GetUniqueClipController (req: Request, res: Response) {
   const { clipid } = req.params;
-  console.log(clipid);
 
   try {
     const ormStreamerRepository = new OrmStreamerRepository();

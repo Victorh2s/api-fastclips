@@ -4,13 +4,18 @@ import { type Request, type Response } from 'express';
 
 export async function GetClipsController (req: Request, res: Response) {
   try {
-    const { time, count } = req.body;
+    const { time, count } = req.query;
 
-    if (count > 100) throw new Error('The count must be at most 100');
+    const querys = {
+      time: Number(time),
+      count: Number(count)
+    };
+
+    if (querys.count > 100) throw new Error('The count must be at most 100');
 
     const ormStreamerRepository = new OrmStreamerRepository();
     const getClipsUseCase = new GetClipsUseCase(ormStreamerRepository);
-    const data = await getClipsUseCase.execute({ time, count });
+    const data = await getClipsUseCase.execute({ time: querys.time, count: querys.count });
 
     return res.json(data).status(200);
   } catch (error: any) {

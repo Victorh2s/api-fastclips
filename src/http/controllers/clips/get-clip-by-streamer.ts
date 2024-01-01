@@ -2,7 +2,7 @@ import { OrmStreamerRepository } from '@/repositories/orm/orm-streamer';
 import { GetClipsByStreamer } from '@/use-cases/clips-use-case/get-clip-by-streamer';
 import { type Request, type Response } from 'express';
 
-export async function GetClipByStreamer (req: Request, res: Response) {
+export async function GetClipByStreamerController (req: Request, res: Response) {
   try {
     const ormStreamerRepository = new OrmStreamerRepository();
     const getClipByStreamer = new GetClipsByStreamer(ormStreamerRepository);
